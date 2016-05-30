@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_aZwK0NVnEeWFkIKgi7Bnyw" name="RootElement">
+  <packagedElement xmi:type="uml:Class" xmi:id="_XcSesNVoEeWFkIKgi7Bnyw" name="Ship">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_oK-CgNVoEeWFkIKgi7Bnyw" name="Fairplay_SID" type="_hnDpkNVoEeWFkIKgi7Bnyw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_b2IFYNVrEeWFkIKgi7Bnyw" name="class data" type="_wllMcNVqEeWFkIKgi7Bnyw" aggregation="composite" association="_b2GQMNVrEeWFkIKgi7Bnyw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_5FwBQNVrEeWFkIKgi7Bnyw" name="IMO No" type="_hnDpkNVoEeWFkIKgi7Bnyw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_hnDpkNVoEeWFkIKgi7Bnyw" name="String"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ngeCENVqEeWFkIKgi7Bnyw" name="Classification Society"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_wllMcNVqEeWFkIKgi7Bnyw" name="Class Data">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_zcquUNVqEeWFkIKgi7Bnyw" type="_ngeCENVqEeWFkIKgi7Bnyw" association="_zchkYNVqEeWFkIKgi7Bnyw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3Dd14NVqEeWFkIKgi7Bnyw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3DlKoNVqEeWFkIKgi7Bnyw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_O0CIENVrEeWFkIKgi7Bnyw" name="Class Date" type="_Kzg48NVrEeWFkIKgi7Bnyw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Zg2QENVrEeWFkIKgi7Bnyw" name="Classification ID" type="_hnDpkNVoEeWFkIKgi7Bnyw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_zchkYNVqEeWFkIKgi7Bnyw" name="Classed By" memberEnd="_zcquUNVqEeWFkIKgi7Bnyw _zctKkNVqEeWFkIKgi7Bnyw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zcknsNVqEeWFkIKgi7Bnyw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zclOwNVqEeWFkIKgi7Bnyw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zctKkNVqEeWFkIKgi7Bnyw" type="_wllMcNVqEeWFkIKgi7Bnyw" association="_zchkYNVqEeWFkIKgi7Bnyw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7neMkNVqEeWFkIKgi7Bnyw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7ngBwNVqEeWFkIKgi7Bnyw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Kzg48NVrEeWFkIKgi7Bnyw" name="Date"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_b2GQMNVrEeWFkIKgi7Bnyw" name="Class Data" memberEnd="_b2IFYNVrEeWFkIKgi7Bnyw _b2LIsNVrEeWFkIKgi7Bnyw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_b2G3QNVrEeWFkIKgi7Bnyw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_b2HeUNVrEeWFkIKgi7Bnyw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_b2LIsNVrEeWFkIKgi7Bnyw" name="ship" type="_XcSesNVoEeWFkIKgi7Bnyw" association="_b2GQMNVrEeWFkIKgi7Bnyw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_znEyENVrEeWFkIKgi7Bnyw" name="Float"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-sIhUNVzEeWFkIKgi7Bnyw" name="Newbuilding Yard"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Bwx-ENV0EeWFkIKgi7Bnyw" name="Flag State"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GYGugNV0EeWFkIKgi7Bnyw" name="Operator"/>
+</uml:Model>

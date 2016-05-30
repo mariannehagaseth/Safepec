@@ -1,0 +1,28 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question 10:
+# Which state (class) applies to a bn_node?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT ?bn_node_class ?state_class
+WHERE 
+{
+  # VALUES ?bn_node_class { spc:rating_class_soc_bn_node } .
+  #
+  # return all classes which are subclasses of bn_node
+  ?bn_node_class rdfs:subClassOf+ spc:bn_node .  
+  #
+  #
+  OPTIONAL
+  {
+    ?state_class owl:equivalentClass|rdfs:subClassOf ?a .
+    ?a owl:intersectionOf*/(rdf:rest*/rdf:first)* ?restriction .
+    ?restriction rdf:type owl:Restriction .
+    ?restriction owl:onProperty ?on_property .
+    ?restriction owl:someValuesFrom|owl:allValuesFrom ?bn_node_class .
+    FILTER ( ?on_property = spc:appliesTo ) .
+  }
+}

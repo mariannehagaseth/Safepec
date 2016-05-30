@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_gSzzIMqWEeWzAKKD9jyFOQ" name="RootElement">
+  <packagedElement xmi:type="uml:Class" xmi:id="_llRLQMqWEeWzAKKD9jyFOQ" name="Ship">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_2wrr0NGQEeWfPeQwraWIsQ" name="IHS ID" type="_JN5scNSvEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_JN5scNSvEeWGOLar0ePSRw" name="String"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lJHaINSvEeWGOLar0ePSRw" name="Ex_Base" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_tzr9kNSvEeWGOLar0ePSRw" name="ID" type="_JN5scNSvEeWGOLar0ePSRw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_aYGcsNSxEeWGOLar0ePSRw" name="Iteration" type="_TyrA0NSxEeWGOLar0ePSRw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_iI5fgNSxEeWGOLar0ePSRw" name="Year_Acquired" type="_cO9QoNSxEeWGOLar0ePSRw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_xPLssNSyEeWGOLar0ePSRw" name="ship" type="_llRLQMqWEeWzAKKD9jyFOQ" association="_xO_fcNSyEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TyrA0NSxEeWGOLar0ePSRw" name="Integer"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_cO9QoNSxEeWGOLar0ePSRw" name="Date"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_AsGjINSyEeWGOLar0ePSRw" name="Ex_Flag">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_J7qC8NSyEeWGOLar0ePSRw" name="Flag" type="_JN5scNSvEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_NudmMNSyEeWGOLar0ePSRw" name="Ex_Manager">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_nRiX0NSyEeWGOLar0ePSRw" name="Name" type="_JN5scNSvEeWGOLar0ePSRw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_jxbuINSyEeWGOLar0ePSRw" name="Country of D..." type="_JN5scNSvEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_b48H4NSyEeWGOLar0ePSRw" client="_NudmMNSyEeWGOLar0ePSRw" supplier="_lJHaINSvEeWGOLar0ePSRw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_eViGINSyEeWGOLar0ePSRw" client="_AsGjINSyEeWGOLar0ePSRw" supplier="_lJHaINSvEeWGOLar0ePSRw"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xO_fcNSyEeWGOLar0ePSRw" name="applies to" memberEnd="_xPLssNSyEeWGOLar0ePSRw _xPLssdSyEeWGOLar0ePSRw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xPFmENSyEeWGOLar0ePSRw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xPFmEdSyEeWGOLar0ePSRw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_xPLssdSyEeWGOLar0ePSRw" name="ex_" type="_lJHaINSvEeWGOLar0ePSRw" association="_xO_fcNSyEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_3xYOYNSyEeWGOLar0ePSRw" name="Ex_Name">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-UumoNSyEeWGOLar0ePSRw" name="Name" type="_JN5scNSvEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_7LN4ANSyEeWGOLar0ePSRw" client="_3xYOYNSyEeWGOLar0ePSRw" supplier="_lJHaINSvEeWGOLar0ePSRw"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CvHHQNSzEeWGOLar0ePSRw" name="Ex_Operator">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_JMKDMNSzEeWGOLar0ePSRw" name="Name" type="_JN5scNSvEeWGOLar0ePSRw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_MGH58NSzEeWGOLar0ePSRw" name="Country of D..." type="_JN5scNSvEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_GEE38NSzEeWGOLar0ePSRw" client="_CvHHQNSzEeWGOLar0ePSRw" supplier="_lJHaINSvEeWGOLar0ePSRw"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_QlMtUNSzEeWGOLar0ePSRw" name="Ex_Owner">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_U2IXANSzEeWGOLar0ePSRw" name="Name" type="_JN5scNSvEeWGOLar0ePSRw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_XjgjQNSzEeWGOLar0ePSRw" name="Country of D..." type="_JN5scNSvEeWGOLar0ePSRw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_axbQwNSzEeWGOLar0ePSRw" name="SalePrice" type="_JN5scNSvEeWGOLar0ePSRw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_de_qQNSzEeWGOLar0ePSRw" client="_QlMtUNSzEeWGOLar0ePSRw" supplier="_gSzzIMqWEeWzAKKD9jyFOQ"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_TswnANVqEeWFkIKgi7Bnyw" client="_QlMtUNSzEeWGOLar0ePSRw" supplier="_lJHaINSvEeWGOLar0ePSRw"/>
+</uml:Model>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2vamkNVsEeWFkIKgi7Bnyw" name="RootElement">
+  <packagedElement xmi:type="uml:Class" xmi:id="__Qf20NVsEeWFkIKgi7Bnyw" name="Ship">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Lu5RMNVtEeWFkIKgi7Bnyw" name="LRNO">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ZdK_ENVtEeWFkIKgi7Bnyw" name="Classification Society">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_fBs-oNVtEeWFkIKgi7Bnyw" name="Name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hPj9UNVtEeWFkIKgi7Bnyw" name="Survey" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_nhq0kNVtEeWFkIKgi7Bnyw" name="Survey Date">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_rgsO4NVtEeWFkIKgi7Bnyw" type="_ZdK_ENVtEeWFkIKgi7Bnyw" association="_rgqZsNVtEeWFkIKgi7Bnyw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vIol8NVtEeWFkIKgi7Bnyw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vIrCMNVtEeWFkIKgi7Bnyw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_70vsMNVtEeWFkIKgi7Bnyw" type="__Qf20NVsEeWFkIKgi7Bnyw" association="_70t3ANVtEeWFkIKgi7Bnyw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CSWo0NVuEeWFkIKgi7Bnyw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CSYeANVuEeWFkIKgi7Bnyw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_rgqZsNVtEeWFkIKgi7Bnyw" name="carried out by" memberEnd="_rgsO4NVtEeWFkIKgi7Bnyw _rgv5QNVtEeWFkIKgi7Bnyw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rgrAwNVtEeWFkIKgi7Bnyw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rgrn0NVtEeWFkIKgi7Bnyw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_rgv5QNVtEeWFkIKgi7Bnyw" type="_hPj9UNVtEeWFkIKgi7Bnyw" association="_rgqZsNVtEeWFkIKgi7Bnyw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yaeKINVtEeWFkIKgi7Bnyw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yaf_UNVtEeWFkIKgi7Bnyw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_70t3ANVtEeWFkIKgi7Bnyw" name="surveyed ship" memberEnd="_70vsMNVtEeWFkIKgi7Bnyw _70yIcNVtEeWFkIKgi7Bnyw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_70ueENVtEeWFkIKgi7Bnyw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_70vFINVtEeWFkIKgi7Bnyw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_70yIcNVtEeWFkIKgi7Bnyw" type="_hPj9UNVtEeWFkIKgi7Bnyw" association="_70t3ANVtEeWFkIKgi7Bnyw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Dsj9ANVuEeWFkIKgi7Bnyw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DsnnYNVuEeWFkIKgi7Bnyw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_OgVBkNVuEeWFkIKgi7Bnyw" name="Special Survey"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_P6R3ENVuEeWFkIKgi7Bnyw" name="Continuous Machinery Survey"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_SUt5MNVuEeWFkIKgi7Bnyw" name="Special Survey Lakes"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UKPQYNVuEeWFkIKgi7Bnyw" name="Continuous Hull Survey"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_WUEDoNVuEeWFkIKgi7Bnyw" name="Tail Shaft Survey"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Xm_EENVuEeWFkIKgi7Bnyw" name="Docking Survey"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_aAvJsNVuEeWFkIKgi7Bnyw" name="Annual Survey"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_maDPwNVuEeWFkIKgi7Bnyw" client="_aAvJsNVuEeWFkIKgi7Bnyw" supplier="_hPj9UNVtEeWFkIKgi7Bnyw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_nUSqcNVuEeWFkIKgi7Bnyw" client="_OgVBkNVuEeWFkIKgi7Bnyw" supplier="_hPj9UNVtEeWFkIKgi7Bnyw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_oz2_wNVuEeWFkIKgi7Bnyw" client="_Xm_EENVuEeWFkIKgi7Bnyw" supplier="_hPj9UNVtEeWFkIKgi7Bnyw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_p8GaMNVuEeWFkIKgi7Bnyw" client="_WUEDoNVuEeWFkIKgi7Bnyw" supplier="_hPj9UNVtEeWFkIKgi7Bnyw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_q0tdMNVuEeWFkIKgi7Bnyw" client="_P6R3ENVuEeWFkIKgi7Bnyw" supplier="_hPj9UNVtEeWFkIKgi7Bnyw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_sahkcNVuEeWFkIKgi7Bnyw" client="_SUt5MNVuEeWFkIKgi7Bnyw" supplier="_hPj9UNVtEeWFkIKgi7Bnyw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_tO8D8NVuEeWFkIKgi7Bnyw" client="_UKPQYNVuEeWFkIKgi7Bnyw" supplier="_hPj9UNVtEeWFkIKgi7Bnyw"/>
+</uml:Model>

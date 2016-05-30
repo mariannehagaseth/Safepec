@@ -1,0 +1,20 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question 5:
+# Which bn_nodes are represented by the ontology?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT *
+WHERE 
+{
+  # return all classes which are subclasses of bn_node
+  # ?bn_node_class rdfs:subClassOf+ spc:bn_node .
+  #
+  # return all classes which are subclasses of dependent/independent bn_node
+  { ?independent_bn_node rdfs:subClassOf+ spc:independent_bn_node . }
+  UNION
+  { ?dependent_bn_node rdfs:subClassOf+ spc:dependent_bn_node . }
+}
