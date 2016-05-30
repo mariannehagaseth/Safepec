@@ -4,20 +4,19 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Competency Question 7:
-# Which lookup_parameters (class) encode the state (class) or cpd_parameters (class) on the expert_table?
-# (expert_table is closely related to bn_node and thus substituted by bn_node in this test.)
+# Competency Question 6:
+# Which expert_table gives the state_values for a given bn_node?
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-SELECT DISTINCT ?state_class ?lookup_param_class ?table
+SELECT DISTINCT ?bn_node_class ?state_class ?table
 WHERE 
 {
-  # VALUES ?state_class { spc:rating_class_soc_state } .
+  VALUES ?bn_node_class { spc:rating_class_soc_bn_node } .
   #
   ?state_class owl:equivalentClass|rdfs:subClassOf ?a .
   ?a owl:intersectionOf*/(rdf:rest*/rdf:first)* ?restriction .
   ?restriction rdf:type owl:Restriction .
   ?restriction owl:onProperty ?on_property .
-  ?restriction owl:someValuesFrom|owl:allValuesFrom ?lookup_param_class .
-  FILTER ( ?on_property = spc:dependsOn ) .
+  ?restriction owl:someValuesFrom|owl:allValuesFrom ?bn_node_class .
+  FILTER ( ?on_property = spc:appliesTo ) .
   OPTIONAL{ ?state_class spc:providedByTable ?table . } .
 }

@@ -1,0 +1,21 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question 12:
+# Which is the state_values and encoding lookup_parameter_values for a given state (class)?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT ?state_class ?state_value ?lookup_param_class ?lookup_param_value
+WHERE 
+{
+  VALUES ?state_class { spc:rating_class_soc_state } .
+  #
+  _:state_value rdf:type ?state_class .
+  _:state_value spc:state_value ?state_value .
+  _:state_value spc:dependsOn _:lookup_param .
+  _:lookup_param rdf:type ?lookup_param_class .
+  _:lookup_param spc:mapping_parameter_value ?lookup_param_value .
+  FILTER ( ?lookup_param_class != owl:NamedIndividual ) .
+}
