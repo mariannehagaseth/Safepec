@@ -37,6 +37,17 @@
 
 
 
+###  http://data.safepec.eu/2016/bn/0.2/providedByTable
+
+<http://data.safepec.eu/2016/bn/0.2/providedByTable> rdf:type owl:AnnotationProperty ;
+                                                     
+                                                     rdfs:comment """The individuals for a class with this annotation are provided by a relational table. The URI of the table is provided by the string literal of this annotation. The URI of the table has also be stated by the ontop mappings. They are the single source of truth! This annotation just serves for convenience as it allows to sparql for the responsible table.
+The annotation can be used either for tables from the safepec expert database as well as for tables from the external data sources."""^^xsd:string ;
+                                                     
+                                                     rdfs:range xsd:string .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/sql_mapping_statement
 
 <http://data.safepec.eu/2016/bn/0.2/sql_mapping_statement> rdf:type owl:AnnotationProperty .
@@ -337,10 +348,12 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
                                                                                                        ]
                                                                                                        [ rdf:type owl:Restriction ;
                                                                                                          owl:onProperty <http://data.safepec.eu/2016/bn/0.2/dependsOn> ;
-                                                                                                         owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/class_soc_mapping_parameter>
+                                                                                                         owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/iacs_class_map_param>
                                                                                                        ]
                                                                                                      )
-                                                                                ] .
+                                                                                ] ;
+                                                            
+                                                            <http://data.safepec.eu/2016/bn/0.2/providedByTable> "/spcdb/bn/independent/rating_class_soc_state/??"^^xsd:string .
 
 
 
@@ -464,63 +477,63 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 #################################################################
 
 
-###  http://data.safepec.eu/2016/bn/0.2/iacs_class_false
+###  http://data.safepec.eu/2016/bn/0.2/A3153798-AFF0-40FB-916B-52DF931BDF4E
 
-<http://data.safepec.eu/2016/bn/0.2/iacs_class_false> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_class_map_param> ,
-                                                               owl:NamedIndividual .
-
-
-
-###  http://data.safepec.eu/2016/bn/0.2/iacs_class_true
-
-<http://data.safepec.eu/2016/bn/0.2/iacs_class_true> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_class_map_param> ,
-                                                              owl:NamedIndividual .
+<http://data.safepec.eu/2016/bn/0.2/A3153798-AFF0-40FB-916B-52DF931BDF4E> rdf:type <http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state> ,
+                                                                                   owl:NamedIndividual ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/state_value> "1.1"^^xsd:double ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/2DC0180C-C736-4E58-B3B0-A446C24FD13D> .
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/iacs_class_unknown
+###  http://data.safepec.eu/2016/bn/0.2/EE0ADE30-5582-49E3-B893-11FC8DEE4541
 
-<http://data.safepec.eu/2016/bn/0.2/iacs_class_unknown> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_class_map_param> ,
-                                                                 owl:NamedIndividual .
-
-
-
-###  http://data.safepec.eu/2016/bn/0.2/state_123
-
-<http://data.safepec.eu/2016/bn/0.2/state_123> rdf:type <http://data.safepec.eu/2016/bn/0.2/state> ,
-                                                        owl:NamedIndividual ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/state_value> "1.1"^^xsd:double ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/iacs_class_true> ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/appliesTo> <http://data.safepec.eu/test_indiv/bn_node/causes/rating_class_soc> .
+<http://data.safepec.eu/2016/bn/0.2/EE0ADE30-5582-49E3-B893-11FC8DEE4541> rdf:type <http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state> ,
+                                                                                   owl:NamedIndividual ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/FE414C8C-13F9-4AF5-A0E3-4B586DB3C458> .
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/state_234
+###  http://data.safepec.eu/2016/bn/0.2/FE414C8C-13F9-4AF5-A0E3-4B586DB3C458
 
-<http://data.safepec.eu/2016/bn/0.2/state_234> rdf:type <http://data.safepec.eu/2016/bn/0.2/state> ,
-                                                        owl:NamedIndividual ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/iacs_class_false> ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/appliesTo> <http://data.safepec.eu/test_indiv/bn_node/causes/rating_class_soc> .
+<http://data.safepec.eu/2016/bn/0.2/FE414C8C-13F9-4AF5-A0E3-4B586DB3C458> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_class_map_param> ,
+                                                                                   owl:NamedIndividual ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/mapping_parameter_value> "unknown"^^xsd:string .
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/state_567
+###  http://data.safepec.eu/2016/bn/0.2/036BDC5D-D84F-4E3D-B9FE-F072AD2B9350
 
-<http://data.safepec.eu/2016/bn/0.2/state_567> rdf:type <http://data.safepec.eu/2016/bn/0.2/state> ,
-                                                        owl:NamedIndividual ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/iacs_class_unknown> ;
-                                               
-                                               <http://data.safepec.eu/2016/bn/0.2/appliesTo> <http://data.safepec.eu/test_indiv/bn_node/causes/rating_class_soc> .
+<http://data.safepec.eu/2016/bn/0.2/036BDC5D-D84F-4E3D-B9FE-F072AD2B9350> rdf:type <http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state> ,
+                                                                                   owl:NamedIndividual ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/0859C60D-6DEC-420E-86D3-8F52D9E7DCC5> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/0859C60D-6DEC-420E-86D3-8F52D9E7DCC5
+
+<http://data.safepec.eu/2016/bn/0.2/0859C60D-6DEC-420E-86D3-8F52D9E7DCC5> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_class_map_param> ,
+                                                                                   owl:NamedIndividual ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/mapping_parameter_value> "false"^^xsd:string .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/2DC0180C-C736-4E58-B3B0-A446C24FD13D
+
+<http://data.safepec.eu/2016/bn/0.2/2DC0180C-C736-4E58-B3B0-A446C24FD13D> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_class_map_param> ,
+                                                                                   owl:NamedIndividual ;
+                                                                          
+                                                                          <http://data.safepec.eu/2016/bn/0.2/mapping_parameter_value> "true"^^xsd:string .
 
 
 
