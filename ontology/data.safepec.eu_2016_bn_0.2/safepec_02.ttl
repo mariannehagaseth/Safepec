@@ -314,9 +314,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/n_owner_changes_state
+###  http://data.safepec.eu/2016/bn/0.2/n_owner_changes_corr_state
 
-<http://data.safepec.eu/2016/bn/0.2/n_owner_changes_state> rdf:type owl:Class ;
+<http://data.safepec.eu/2016/bn/0.2/n_owner_changes_corr_state> rdf:type owl:Class ;
                                                            
                                                            owl:equivalentClass [ rdf:type owl:Restriction ;
                                                                                  owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
@@ -337,9 +337,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state
+###  http://data.safepec.eu/2016/bn/0.2/class_corr_state
 
-<http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state> rdf:type owl:Class ;
+<http://data.safepec.eu/2016/bn/0.2/class_corr_state> rdf:type owl:Class ;
                                                             
                                                             owl:equivalentClass [ rdf:type owl:Class ;
                                                                                   owl:intersectionOf ( [ rdf:type owl:Restriction ;
@@ -353,7 +353,7 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
                                                                                                      )
                                                                                 ] ;
                                                             
-                                                            <http://data.safepec.eu/2016/bn/0.2/providedByTable> "/spcdb/bn/independent/rating_class_soc_state/??"^^xsd:string .
+                                                            <http://data.safepec.eu/2016/bn/0.2/providedByTable> "/spcdb/bn/independent/rating_class_society/??"^^xsd:string .
 
 
 
@@ -401,9 +401,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/vessel_age_state
+###  http://data.safepec.eu/2016/bn/0.2/vessel_age_corr_state
 
-<http://data.safepec.eu/2016/bn/0.2/vessel_age_state> rdf:type owl:Class ;
+<http://data.safepec.eu/2016/bn/0.2/vessel_age_corr_state> rdf:type owl:Class ;
                                                       
                                                       owl:equivalentClass [ rdf:type owl:Class ;
                                                                             owl:intersectionOf ( [ rdf:type owl:Restriction ;
@@ -449,9 +449,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_state
+###  http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_corr_state
 
-<http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_state> rdf:type owl:Class ;
+<http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_corr_state> rdf:type owl:Class ;
                                                                  
                                                                  owl:equivalentClass [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
@@ -477,9 +477,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 #################################################################
 
 
-###  http://data.safepec.eu/2016/bn/0.2/A3153798-AFF0-40FB-916B-52DF931BDF4E
+###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_0
 
-<http://data.safepec.eu/2016/bn/0.2/A3153798-AFF0-40FB-916B-52DF931BDF4E> rdf:type <http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state> ,
+<http://data.safepec.eu/2016/bn/0.2/class_corr_state_0> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
                                                                                    owl:NamedIndividual ;
                                                                           
                                                                           <http://data.safepec.eu/2016/bn/0.2/state_value> "1.1"^^xsd:double ;
@@ -488,9 +488,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/EE0ADE30-5582-49E3-B893-11FC8DEE4541
+###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_1
 
-<http://data.safepec.eu/2016/bn/0.2/EE0ADE30-5582-49E3-B893-11FC8DEE4541> rdf:type <http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state> ,
+<http://data.safepec.eu/2016/bn/0.2/class_corr_state_1> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
                                                                                    owl:NamedIndividual ;
                                                                           
                                                                           <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
@@ -508,9 +508,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
-###  http://data.safepec.eu/2016/bn/0.2/036BDC5D-D84F-4E3D-B9FE-F072AD2B9350
+###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_2
 
-<http://data.safepec.eu/2016/bn/0.2/036BDC5D-D84F-4E3D-B9FE-F072AD2B9350> rdf:type <http://data.safepec.eu/2016/bn/0.2/rating_class_soc_state> ,
+<http://data.safepec.eu/2016/bn/0.2/class_corr_state_2> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
                                                                                    owl:NamedIndividual ;
                                                                           
                                                                           <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
@@ -558,19 +558,6 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 #    General axioms
 #
 #################################################################
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://data.safepec.eu/2016/bn/0.2/TEU>
-                <http://data.safepec.eu/2016/bn/0.2/breadth>
-                <http://data.safepec.eu/2016/bn/0.2/depth>
-                <http://data.safepec.eu/2016/bn/0.2/gross_tonnage>
-                <http://data.safepec.eu/2016/bn/0.2/length>
-                <http://data.safepec.eu/2016/bn/0.2/ship_type>
-                <http://data.safepec.eu/2016/bn/0.2/year_built>
-              )
-] .
-
 
 
 
