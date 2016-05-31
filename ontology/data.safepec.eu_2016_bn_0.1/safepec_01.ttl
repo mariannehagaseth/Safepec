@@ -1,0 +1,582 @@
+@prefix : <http://data.safepec.eu/2016/bn/0.1#> .
+@prefix iao: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vqs: <http://eu.optique.ontology/annotations#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix test: <http://data.safepec.eu/test_indiv/> .
+@base <http://data.safepec.eu/2016/bn/0.1> .
+
+<http://data.safepec.eu/2016/bn/0.1> rdf:type owl:Ontology ;
+                                     
+                                     owl:versionInfo "First version of bn ontology without using ontop. This approach tries to define some own concpets where to store the RDB2RDF mappings." ;
+                                     
+                                     owl:deprecated "This version has been quickly superseded by http://data.safepec.eu/2016/bn/0.2" .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://data.safepec.eu/2016/bn/0.1/mapping_comment
+
+<http://data.safepec.eu/2016/bn/0.1/mapping_comment> rdf:type owl:AnnotationProperty ;
+                                                     
+                                                     rdfs:subPropertyOf rdfs:comment .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/ns_label
+
+<http://data.safepec.eu/2016/bn/0.1/ns_label> rdf:type owl:AnnotationProperty ;
+                                              
+                                              rdfs:subPropertyOf rdfs:label .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/sql_mapping_statement
+
+<http://data.safepec.eu/2016/bn/0.1/sql_mapping_statement> rdf:type owl:AnnotationProperty .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/sql_variable_label
+
+<http://data.safepec.eu/2016/bn/0.1/sql_variable_label> rdf:type owl:AnnotationProperty ;
+                                                        
+                                                        rdfs:subPropertyOf rdfs:label .
+
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+
+iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                
+                rdfs:label "definition" .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://data.safepec.eu/2016/bn/0.1/hasMapping
+
+<http://data.safepec.eu/2016/bn/0.1/hasMapping> rdf:type owl:FunctionalProperty ,
+                                                         owl:InverseFunctionalProperty ,
+                                                         owl:ObjectProperty ;
+                                                
+                                                rdfs:range <http://data.safepec.eu/2016/bn/0.1/mapping> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/hasMappingParameter
+
+<http://data.safepec.eu/2016/bn/0.1/hasMappingParameter> rdf:type owl:FunctionalProperty ,
+                                                                  owl:ObjectProperty ;
+                                                         
+                                                         rdfs:domain <http://data.safepec.eu/2016/bn/0.1/mapping> ;
+                                                         
+                                                         rdfs:range <http://data.safepec.eu/2016/bn/0.1/mapping_parameter> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/hasQuality
+
+<http://data.safepec.eu/2016/bn/0.1/hasQuality> rdf:type owl:ObjectProperty ;
+                                                
+                                                rdfs:domain <http://data.safepec.eu/2016/bn/0.1/object> ;
+                                                
+                                                rdfs:range <http://data.safepec.eu/2016/bn/0.1/quality> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/hasRegime
+
+<http://data.safepec.eu/2016/bn/0.1/hasRegime> rdf:type owl:ObjectProperty ;
+                                               
+                                               rdfs:domain <http://data.safepec.eu/2016/bn/0.1/object> ;
+                                               
+                                               rdfs:range <http://data.safepec.eu/2016/bn/0.1/regime> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/refersToValueOf
+
+<http://data.safepec.eu/2016/bn/0.1/refersToValueOf> rdf:type owl:FunctionalProperty ,
+                                                              owl:ObjectProperty ;
+                                                     
+                                                     rdfs:domain <http://data.safepec.eu/2016/bn/0.1/mapping_parameter> .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://data.safepec.eu/2016/bn/0.1/TEU
+
+<http://data.safepec.eu/2016/bn/0.1/TEU> rdf:type owl:Class ;
+                                         
+                                         rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/quality> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/bn_node
+
+<http://data.safepec.eu/2016/bn/0.1/bn_node> rdf:type owl:Class .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/breadth
+
+<http://data.safepec.eu/2016/bn/0.1/breadth> rdf:type owl:Class ;
+                                             
+                                             rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/quality> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/class_soc
+
+<http://data.safepec.eu/2016/bn/0.1/class_soc> rdf:type owl:Class ;
+                                               
+                                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                                     owl:oneOf ( <http://data.safepec.eu/test_indiv/class/germanischerlloyd>
+                                                                                 <http://data.safepec.eu/test_indiv/class/lloydsregister>
+                                                                               )
+                                                                   ] ;
+                                               
+                                               rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/regime> ;
+                                               
+                                               owl:disjointWith <http://data.safepec.eu/2016/bn/0.1/registry> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/class_soc_mapping
+
+<http://data.safepec.eu/2016/bn/0.1/class_soc_mapping> rdf:type owl:Class ;
+                                                       
+                                                       owl:equivalentClass [ rdf:type owl:Class ;
+                                                                             owl:intersectionOf ( <http://data.safepec.eu/2016/bn/0.1/mapping>
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty <http://data.safepec.eu/2016/bn/0.1/hasMappingParameter> ;
+                                                                                                    owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.1/class_soc_mapping_parameter>
+                                                                                                  ]
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty <http://data.safepec.eu/2016/bn/0.1/hasMappingParameter> ;
+                                                                                                    owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.1/class_soc_mapping_parameter>
+                                                                                                  ]
+                                                                                                )
+                                                                           ] ;
+                                                       
+                                                       iao:IAO_0000115 "a class_soc mapping is a mapping, which uses value of the class_soc mapping_parameter for a specific vessel as variable in the sql_mapping_statement." .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/class_soc_mapping_parameter
+
+<http://data.safepec.eu/2016/bn/0.1/class_soc_mapping_parameter> rdf:type owl:Class ;
+                                                                 
+                                                                 owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                       owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                              owl:onProperty <http://data.safepec.eu/2016/bn/0.1/refersToValueOf> ;
+                                                                                                              owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.1/class_soc>
+                                                                                                            ]
+                                                                                                            [ rdf:type owl:Restriction ;
+                                                                                                              owl:onProperty <http://data.safepec.eu/2016/bn/0.1/refersToValueOf> ;
+                                                                                                              owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.1/class_soc>
+                                                                                                            ]
+                                                                                                          )
+                                                                                     ] ;
+                                                                 
+                                                                 rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/mapping_parameter> ;
+                                                                 
+                                                                 <http://data.safepec.eu/2016/bn/0.1/sql_variable_label> "class_soc" .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/dependent_bn_node
+
+<http://data.safepec.eu/2016/bn/0.1/dependent_bn_node> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/bn_node> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/depth
+
+<http://data.safepec.eu/2016/bn/0.1/depth> rdf:type owl:Class ;
+                                           
+                                           rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/quality> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/gross_tonnage
+
+<http://data.safepec.eu/2016/bn/0.1/gross_tonnage> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/quality> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/imo_mapping
+
+<http://data.safepec.eu/2016/bn/0.1/imo_mapping> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/mapping> ;
+                                                 
+                                                 iao:IAO_0000115 "an imo mapping is a mapping, which uses the imo number of a vessel to define a sql_mapping_statement which resolves to a vessel specific property, e.g. length, class society, number of owner changes." .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/independent_bn_node
+
+<http://data.safepec.eu/2016/bn/0.1/independent_bn_node> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/bn_node> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/length
+
+<http://data.safepec.eu/2016/bn/0.1/length> rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/quality> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/mapping
+
+<http://data.safepec.eu/2016/bn/0.1/mapping> rdf:type owl:Class ;
+                                             
+                                             iao:IAO_0000115 "a mapping defines how to retrieve the value for a data_entity. the retrieval is given by a sql_mapping_statement. if no sql_mapping_statement can be given (due to lack of information) a mapping_comment has to notate the mapping rule as a text." .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/mapping_parameter
+
+<http://data.safepec.eu/2016/bn/0.1/mapping_parameter> rdf:type owl:Class ;
+                                                       
+                                                       iao:IAO_0000115 "a mapping_parameter defines variable which can be used in a sql_mapping_statement of a mapping. it is defined by a label and the reference to some vessel property e.g. class society or length." ;
+                                                       
+                                                       rdfs:comment "a mapping_parameter for a specific vessel property is created as a subclass of mapping_parameter. i.e. T-box! this way, mapping_parameter and its subclasses can be used to create a query via OptiqueVQS." .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/object
+
+<http://data.safepec.eu/2016/bn/0.1/object> rdf:type owl:Class .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/quality
+
+<http://data.safepec.eu/2016/bn/0.1/quality> rdf:type owl:Class .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/regime
+
+<http://data.safepec.eu/2016/bn/0.1/regime> rdf:type owl:Class .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/registry
+
+<http://data.safepec.eu/2016/bn/0.1/registry> rdf:type owl:Class ;
+                                              
+                                              rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/regime> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/ship_type
+
+<http://data.safepec.eu/2016/bn/0.1/ship_type> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/quality> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/vessel
+
+<http://data.safepec.eu/2016/bn/0.1/vessel> rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/object> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/year_built
+
+<http://data.safepec.eu/2016/bn/0.1/year_built> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/quality> ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://data.safepec.eu/2016/bn/0.1/hasMapping> ;
+                                                                  owl:hasValue <http://data.safepec.eu/test_indiv/mappings/year_built_imo_mapping>
+                                                                ] .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/year_built_mapping
+
+<http://data.safepec.eu/2016/bn/0.1/year_built_mapping> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:label "year_built mapping" ;
+                                                        
+                                                        owl:equivalentClass [ rdf:type owl:Class ;
+                                                                              owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://data.safepec.eu/2016/bn/0.1/hasMappingParameter> ;
+                                                                                                     owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.1/year_built_mapping_parameter>
+                                                                                                   ]
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://data.safepec.eu/2016/bn/0.1/hasMappingParameter> ;
+                                                                                                     owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.1/year_built_mapping_parameter>
+                                                                                                   ]
+                                                                                                 )
+                                                                            ] ;
+                                                        
+                                                        rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/mapping> ;
+                                                        
+                                                        iao:IAO_0000115 "a year_built mapping is a mapping, which uses value of the year_built mapping_parameter for a specific vessel as variable in the sql_mapping_statement." .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.1/year_built_mapping_parameter
+
+<http://data.safepec.eu/2016/bn/0.1/year_built_mapping_parameter> rdf:type owl:Class ;
+                                                                  
+                                                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                        owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty <http://data.safepec.eu/2016/bn/0.1/refersToValueOf> ;
+                                                                                                               owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.1/year_built>
+                                                                                                             ]
+                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty <http://data.safepec.eu/2016/bn/0.1/refersToValueOf> ;
+                                                                                                               owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.1/year_built>
+                                                                                                             ]
+                                                                                                           )
+                                                                                      ] ;
+                                                                  
+                                                                  rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.1/mapping_parameter> ;
+                                                                  
+                                                                  <http://data.safepec.eu/2016/bn/0.1/sql_variable_label> "year_built" .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://data.safepec.eu/test_indiv/bn_node/causes/n_owner_changes
+
+<http://data.safepec.eu/test_indiv/bn_node/causes/n_owner_changes> rdf:type <http://data.safepec.eu/2016/bn/0.1/independent_bn_node> ,
+                                                                            owl:NamedIndividual ;
+                                                                   
+                                                                   <http://data.safepec.eu/2016/bn/0.1/hasMapping> <http://data.safepec.eu/test_indiv/mappings/n_owner_changes> .
+
+
+
+###  http://data.safepec.eu/test_indiv/bn_node/causes/rating_class_soc
+
+<http://data.safepec.eu/test_indiv/bn_node/causes/rating_class_soc> rdf:type <http://data.safepec.eu/2016/bn/0.1/independent_bn_node> ,
+                                                                             owl:NamedIndividual ;
+                                                                    
+                                                                    rdfs:label "rating_class_soc" ;
+                                                                    
+                                                                    iao:IAO_0000115 "???" ;
+                                                                    
+                                                                    <http://data.safepec.eu/2016/bn/0.1/ns_label> "causes" ;
+                                                                    
+                                                                    rdfs:comment "???" ;
+                                                                    
+                                                                    <http://data.safepec.eu/2016/bn/0.1/hasMapping> <http://data.safepec.eu/test_indiv/mappings/rating_class_soc_mapping> .
+
+
+
+###  http://data.safepec.eu/test_indiv/bn_node/causes/vessel_age
+
+<http://data.safepec.eu/test_indiv/bn_node/causes/vessel_age> rdf:type <http://data.safepec.eu/2016/bn/0.1/independent_bn_node> ,
+                                                                       owl:NamedIndividual ;
+                                                              
+                                                              <http://data.safepec.eu/2016/bn/0.1/hasMapping> <http://data.safepec.eu/test_indiv/mappings/age_mapping> .
+
+
+
+###  http://data.safepec.eu/test_indiv/bn_node/causes/years_to_next_renewal_survey
+
+<http://data.safepec.eu/test_indiv/bn_node/causes/years_to_next_renewal_survey> rdf:type <http://data.safepec.eu/2016/bn/0.1/independent_bn_node> ,
+                                                                                         owl:NamedIndividual ;
+                                                                                
+                                                                                <http://data.safepec.eu/2016/bn/0.1/hasMapping> <http://data.safepec.eu/test_indiv/mappings/years_to_next_renewal_survey_imo_mapping> .
+
+
+
+###  http://data.safepec.eu/test_indiv/class/germanischerlloyd
+
+<http://data.safepec.eu/test_indiv/class/germanischerlloyd> rdf:type <http://data.safepec.eu/2016/bn/0.1/class_soc> ,
+                                                                     owl:NamedIndividual .
+
+
+
+###  http://data.safepec.eu/test_indiv/class/lloydsregister
+
+<http://data.safepec.eu/test_indiv/class/lloydsregister> rdf:type <http://data.safepec.eu/2016/bn/0.1/class_soc> ,
+                                                                  owl:NamedIndividual .
+
+
+
+###  http://data.safepec.eu/test_indiv/mappings/age_mapping
+
+<http://data.safepec.eu/test_indiv/mappings/age_mapping> rdf:type <http://data.safepec.eu/2016/bn/0.1/year_built_mapping> ,
+                                                                  owl:NamedIndividual ;
+                                                         
+                                                         rdfs:label "vessel_age mapping" ;
+                                                         
+                                                         rdfs:comment "the mapping defined for the bn_node vessel_age" ;
+                                                         
+                                                         <http://data.safepec.eu/2016/bn/0.1/mapping_comment> "vessel_age = ( $TODAY$ - $year_built$ ) as double" .
+
+
+
+###  http://data.safepec.eu/test_indiv/mappings/class_soc_imo_mapping
+
+<http://data.safepec.eu/test_indiv/mappings/class_soc_imo_mapping> rdf:type <http://data.safepec.eu/2016/bn/0.1/imo_mapping> ,
+                                                                            owl:NamedIndividual ;
+                                                                   
+                                                                   rdfs:label "class_soc imo_mapping" ;
+                                                                   
+                                                                   <http://data.safepec.eu/2016/bn/0.1/sql_mapping_statement> """SELECT ... as class_soc
+FROM
+PSC.??? as parisMou
+WHERE
+parisMou.COL1 = $imo$;""" ;
+                                                                   
+                                                                   rdfs:comment "the mapping defined for the vessel regime class_soc" .
+
+
+
+###  http://data.safepec.eu/test_indiv/mappings/n_owner_changes
+
+<http://data.safepec.eu/test_indiv/mappings/n_owner_changes> rdf:type <http://data.safepec.eu/2016/bn/0.1/imo_mapping> ,
+                                                                      owl:NamedIndividual ;
+                                                             
+                                                             rdfs:label "n_owner_changes imo_mapping" ;
+                                                             
+                                                             rdfs:comment "the mapping defined for the bn_node n_owner_changes" ;
+                                                             
+                                                             <http://data.safepec.eu/2016/bn/0.1/sql_mapping_statement> """SELECT ??? as n_owner_changes
+FROM
+IHS.ShipEx as shipex
+WHERE
+...
+...;""" .
+
+
+
+###  http://data.safepec.eu/test_indiv/mappings/rating_class_soc_mapping
+
+<http://data.safepec.eu/test_indiv/mappings/rating_class_soc_mapping> rdf:type <http://data.safepec.eu/2016/bn/0.1/class_soc_mapping> ,
+                                                                               owl:NamedIndividual ;
+                                                                      
+                                                                      rdfs:label "rating_class_soc mapping" ;
+                                                                      
+                                                                      <http://data.safepec.eu/2016/bn/0.1/sql_mapping_statement> """SELECT ratings.COL2 as rating_class_soc
+FROM
+SPC.ExpertDB.Causes.Ratings as ratings
+WHERE
+ratings.COL1 = $class_soc$;""" ;
+                                                                      
+                                                                      <http://data.safepec.eu/2016/bn/0.1/mapping_comment> "maps the class_soc string of the individual vessel (represented by the shortcode e.g. LR) to a double value quantifying the rating for the respective class." ;
+                                                                      
+                                                                      rdfs:comment "the mapping defined for the bn_node rating_class_soc" .
+
+
+
+###  http://data.safepec.eu/test_indiv/mappings/year_built_imo_mapping
+
+<http://data.safepec.eu/test_indiv/mappings/year_built_imo_mapping> rdf:type <http://data.safepec.eu/2016/bn/0.1/imo_mapping> ,
+                                                                             owl:NamedIndividual ;
+                                                                    
+                                                                    rdfs:label "year_built imo_mapping" ;
+                                                                    
+                                                                    rdfs:comment "the mapping defined for the vessel quality year_built" ;
+                                                                    
+                                                                    <http://data.safepec.eu/2016/bn/0.1/sql_mapping_statement> """SELECT .... as year_built
+FROM
+IHS.tblship as shipdata
+WHERE
+shipdata.... = $imo$;""" .
+
+
+
+###  http://data.safepec.eu/test_indiv/mappings/years_to_next_renewal_survey_imo_mapping
+
+<http://data.safepec.eu/test_indiv/mappings/years_to_next_renewal_survey_imo_mapping> rdf:type <http://data.safepec.eu/2016/bn/0.1/imo_mapping> ,
+                                                                                               owl:NamedIndividual ;
+                                                                                      
+                                                                                      rdfs:label "years_to_next_renewal_survey imo_mapping" ;
+                                                                                      
+                                                                                      <http://data.safepec.eu/2016/bn/0.1/sql_mapping_statement> """SELECT (TODAY - ???) as years_to_next_renewal_survey
+FROM
+??? as ...
+WHERE
+...COL1 = $imo$;""" ;
+                                                                                      
+                                                                                      rdfs:comment "the mapping defined for the bn_node years_to_next_renewal_survey." .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://data.safepec.eu/2016/bn/0.1/TEU>
+                <http://data.safepec.eu/2016/bn/0.1/breadth>
+                <http://data.safepec.eu/2016/bn/0.1/depth>
+                <http://data.safepec.eu/2016/bn/0.1/gross_tonnage>
+                <http://data.safepec.eu/2016/bn/0.1/length>
+                <http://data.safepec.eu/2016/bn/0.1/ship_type>
+                <http://data.safepec.eu/2016/bn/0.1/year_built>
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://data.safepec.eu/2016/bn/0.1/bn_node>
+                <http://data.safepec.eu/2016/bn/0.1/mapping>
+                <http://data.safepec.eu/2016/bn/0.1/mapping_parameter>
+                <http://data.safepec.eu/2016/bn/0.1/object>
+                <http://data.safepec.eu/2016/bn/0.1/quality>
+                <http://data.safepec.eu/2016/bn/0.1/regime>
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
