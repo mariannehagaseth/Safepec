@@ -10,7 +10,7 @@ PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
 SELECT DISTINCT ?bn_node_class ?state_class
 WHERE 
 {
-  # VALUES ?bn_node_class { spc:rating_class_soc_bn_node } .
+  # VALUES ?bn_node_class { spc:class_corr_nd } .
   #
   # return all classes which are subclasses of bn_node
   ?bn_node_class rdfs:subClassOf+ spc:bn_node .  

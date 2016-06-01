@@ -10,12 +10,12 @@ PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
 SELECT DISTINCT ?state_class ?state_value ?lookup_param_class ?lookup_param_value
 WHERE 
 {
-  VALUES ?state_class { spc:rating_class_soc_state } .
+  VALUES ?state_class { spc:class_corr_state } .
   #
   _:state_value rdf:type ?state_class .
   _:state_value spc:state_value ?state_value .
   _:state_value spc:dependsOn _:lookup_param .
   _:lookup_param rdf:type ?lookup_param_class .
-  _:lookup_param spc:mapping_parameter_value ?lookup_param_value .
+  _:lookup_param spc:lookup_parameter_value ?lookup_param_value .
   FILTER ( ?lookup_param_class != owl:NamedIndividual ) .
 }
