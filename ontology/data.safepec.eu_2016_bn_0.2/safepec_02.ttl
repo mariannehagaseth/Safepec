@@ -21,6 +21,18 @@
 #################################################################
 
 
+###  http://data.safepec.eu/2016/bn/0.2/imo_number
+
+<http://data.safepec.eu/2016/bn/0.2/imo_number> rdf:type owl:AnnotationProperty ;
+                                                
+                                                rdfs:domain <http://data.safepec.eu/2016/bn/0.2/vessel> ;
+                                                
+                                                rdfs:subPropertyOf rdfs:label ;
+                                                
+                                                rdfs:range xsd:string .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/mapping_comment
 
 <http://data.safepec.eu/2016/bn/0.2/mapping_comment> rdf:type owl:AnnotationProperty ;
@@ -100,6 +112,24 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
+###  http://data.safepec.eu/2016/bn/0.2/hasAdminData
+
+<http://data.safepec.eu/2016/bn/0.2/hasAdminData> rdf:type owl:ObjectProperty ;
+                                                  
+                                                  rdfs:range <http://data.safepec.eu/2016/bn/0.2/administration_data> ;
+                                                  
+                                                  rdfs:domain <http://data.safepec.eu/2016/bn/0.2/object> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/hasDataItem
+
+<http://data.safepec.eu/2016/bn/0.2/hasDataItem> rdf:type owl:ObjectProperty ;
+                                                 
+                                                 rdfs:range <http://data.safepec.eu/2016/bn/0.2/data_item> .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/hasMappingParameter
 
 <http://data.safepec.eu/2016/bn/0.2/hasMappingParameter> rdf:type owl:FunctionalProperty ,
@@ -116,16 +146,6 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
                                                 rdfs:domain <http://data.safepec.eu/2016/bn/0.2/object> ;
                                                 
                                                 rdfs:range <http://data.safepec.eu/2016/bn/0.2/quality> .
-
-
-
-###  http://data.safepec.eu/2016/bn/0.2/hasRegime
-
-<http://data.safepec.eu/2016/bn/0.2/hasRegime> rdf:type owl:ObjectProperty ;
-                                               
-                                               rdfs:domain <http://data.safepec.eu/2016/bn/0.2/object> ;
-                                               
-                                               rdfs:range <http://data.safepec.eu/2016/bn/0.2/regime> .
 
 
 
@@ -147,11 +167,20 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 #################################################################
 
 
+###  http://data.safepec.eu/2016/bn/0.2/data_item_value
+
+<http://data.safepec.eu/2016/bn/0.2/data_item_value> rdf:type owl:DatatypeProperty ,
+                                                              owl:FunctionalProperty ;
+                                                     
+                                                     rdfs:domain <http://data.safepec.eu/2016/bn/0.2/data_item> .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/lookup_parameter_value
 
 <http://data.safepec.eu/2016/bn/0.2/lookup_parameter_value> rdf:type owl:DatatypeProperty ;
-                                                             
-                                                             rdfs:domain <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> .
+                                                            
+                                                            rdfs:domain <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> .
 
 
 
@@ -180,6 +209,14 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
+###  http://data.safepec.eu/2016/bn/0.2/administration_data
+
+<http://data.safepec.eu/2016/bn/0.2/administration_data> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/data_item> .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/bn_node
 
 <http://data.safepec.eu/2016/bn/0.2/bn_node> rdf:type owl:Class .
@@ -202,6 +239,26 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
+###  http://data.safepec.eu/2016/bn/0.2/class_corr_state
+
+<http://data.safepec.eu/2016/bn/0.2/class_corr_state> rdf:type owl:Class ;
+                                                      
+                                                      owl:equivalentClass [ rdf:type owl:Class ;
+                                                                            owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
+                                                                                                   owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/class_corr_nd>
+                                                                                                 ]
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty <http://data.safepec.eu/2016/bn/0.2/dependsOn> ;
+                                                                                                   owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/iacs_class_lookup_param>
+                                                                                                 ]
+                                                                                               )
+                                                                          ] ;
+                                                      
+                                                      <http://data.safepec.eu/2016/bn/0.2/providedByTable> "/spcdb/bn/independent/rating_class_society/??"^^xsd:string .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/class_soc
 
 <http://data.safepec.eu/2016/bn/0.2/class_soc> rdf:type owl:Class ;
@@ -212,7 +269,7 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
                                                                                )
                                                                    ] ;
                                                
-                                               rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/regime> ;
+                                               rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/administration_data> ;
                                                
                                                owl:disjointWith <http://data.safepec.eu/2016/bn/0.2/registry> .
 
@@ -221,22 +278,28 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://data.safepec.eu/2016/bn/0.2/class_soc_lookup_param
 
 <http://data.safepec.eu/2016/bn/0.2/class_soc_lookup_param> rdf:type owl:Class ;
-                                                                 
-                                                                 owl:equivalentClass [ rdf:type owl:Class ;
-                                                                                       owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                              owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
-                                                                                                              owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/class_soc>
-                                                                                                            ]
-                                                                                                            [ rdf:type owl:Restriction ;
-                                                                                                              owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
-                                                                                                              owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.2/class_soc>
-                                                                                                            ]
-                                                                                                          )
-                                                                                     ] ;
-                                                                 
-                                                                 rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> ;
-                                                                 
-                                                                 <http://data.safepec.eu/2016/bn/0.2/sql_variable_label> "class_soc" .
+                                                            
+                                                            owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                  owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
+                                                                                                         owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/class_soc>
+                                                                                                       ]
+                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
+                                                                                                         owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.2/class_soc>
+                                                                                                       ]
+                                                                                                     )
+                                                                                ] ;
+                                                            
+                                                            rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> ;
+                                                            
+                                                            <http://data.safepec.eu/2016/bn/0.2/sql_variable_label> "class_soc" .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/data_item
+
+<http://data.safepec.eu/2016/bn/0.2/data_item> rdf:type owl:Class .
 
 
 
@@ -267,8 +330,16 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://data.safepec.eu/2016/bn/0.2/iacs_class_lookup_param
 
 <http://data.safepec.eu/2016/bn/0.2/iacs_class_lookup_param> rdf:type owl:Class ;
-                                                          
-                                                          rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> .
+                                                             
+                                                             rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/iacs_status
+
+<http://data.safepec.eu/2016/bn/0.2/iacs_status> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/administration_data> .
 
 
 
@@ -288,19 +359,19 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
+###  http://data.safepec.eu/2016/bn/0.2/lookup_parameter
+
+<http://data.safepec.eu/2016/bn/0.2/lookup_parameter> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:comment "a lookup_parameter for a specific vessel property is created as a subclass of lookup_parameter. i.e. T-box! this way, lookup_parameter and its subclasses can be used to create a query via OptiqueVQS." .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/maintenance_bn_node
 
 <http://data.safepec.eu/2016/bn/0.2/maintenance_bn_node> rdf:type owl:Class ;
                                                          
                                                          rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/dependent_bn_node> .
-
-
-
-###  http://data.safepec.eu/2016/bn/0.2/lookup_parameter
-
-<http://data.safepec.eu/2016/bn/0.2/lookup_parameter> rdf:type owl:Class ;
-                                                       
-                                                       rdfs:comment "a lookup_parameter for a specific vessel property is created as a subclass of lookup_parameter. i.e. T-box! this way, lookup_parameter and its subclasses can be used to create a query via OptiqueVQS." .
 
 
 
@@ -315,11 +386,11 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://data.safepec.eu/2016/bn/0.2/n_owner_changes_corr_state
 
 <http://data.safepec.eu/2016/bn/0.2/n_owner_changes_corr_state> rdf:type owl:Class ;
-                                                           
-                                                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
-                                                                                 owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/n_owner_changes_corr_nd>
-                                                                               ] .
+                                                                
+                                                                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
+                                                                                      owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/n_owner_changes_corr_nd>
+                                                                                    ] .
 
 
 
@@ -331,33 +402,9 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 ###  http://data.safepec.eu/2016/bn/0.2/quality
 
-<http://data.safepec.eu/2016/bn/0.2/quality> rdf:type owl:Class .
-
-
-
-###  http://data.safepec.eu/2016/bn/0.2/class_corr_state
-
-<http://data.safepec.eu/2016/bn/0.2/class_corr_state> rdf:type owl:Class ;
-                                                            
-                                                            owl:equivalentClass [ rdf:type owl:Class ;
-                                                                                  owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
-                                                                                                         owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/class_corr_nd>
-                                                                                                       ]
-                                                                                                       [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty <http://data.safepec.eu/2016/bn/0.2/dependsOn> ;
-                                                                                                         owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/iacs_class_lookup_param>
-                                                                                                       ]
-                                                                                                     )
-                                                                                ] ;
-                                                            
-                                                            <http://data.safepec.eu/2016/bn/0.2/providedByTable> "/spcdb/bn/independent/rating_class_society/??"^^xsd:string .
-
-
-
-###  http://data.safepec.eu/2016/bn/0.2/regime
-
-<http://data.safepec.eu/2016/bn/0.2/regime> rdf:type owl:Class .
+<http://data.safepec.eu/2016/bn/0.2/quality> rdf:type owl:Class ;
+                                             
+                                             rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/data_item> .
 
 
 
@@ -365,7 +412,7 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 <http://data.safepec.eu/2016/bn/0.2/registry> rdf:type owl:Class ;
                                               
-                                              rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/regime> .
+                                              rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/administration_data> .
 
 
 
@@ -402,18 +449,18 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://data.safepec.eu/2016/bn/0.2/vessel_age_corr_state
 
 <http://data.safepec.eu/2016/bn/0.2/vessel_age_corr_state> rdf:type owl:Class ;
-                                                      
-                                                      owl:equivalentClass [ rdf:type owl:Class ;
-                                                                            owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
-                                                                                                   owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/vessel_age_corr_nd>
-                                                                                                 ]
-                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty <http://data.safepec.eu/2016/bn/0.2/dependsOn> ;
-                                                                                                   owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/year_built_lookup_param>
-                                                                                                 ]
-                                                                                               )
-                                                                          ] .
+                                                           
+                                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
+                                                                                                        owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/vessel_age_corr_nd>
+                                                                                                      ]
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <http://data.safepec.eu/2016/bn/0.2/dependsOn> ;
+                                                                                                        owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/year_built_lookup_param>
+                                                                                                      ]
+                                                                                                    )
+                                                                               ] .
 
 
 
@@ -428,33 +475,33 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://data.safepec.eu/2016/bn/0.2/year_built_lookup_param
 
 <http://data.safepec.eu/2016/bn/0.2/year_built_lookup_param> rdf:type owl:Class ;
-                                                                  
-                                                                  owl:equivalentClass [ rdf:type owl:Class ;
-                                                                                        owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                               owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
-                                                                                                               owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/year_built>
-                                                                                                             ]
-                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                               owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
-                                                                                                               owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.2/year_built>
-                                                                                                             ]
-                                                                                                           )
-                                                                                      ] ;
-                                                                  
-                                                                  rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> ;
-                                                                  
-                                                                  <http://data.safepec.eu/2016/bn/0.2/sql_variable_label> "year_built" .
+                                                             
+                                                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                   owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
+                                                                                                          owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/year_built>
+                                                                                                        ]
+                                                                                                        [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty <http://data.safepec.eu/2016/bn/0.2/refersToValueOf> ;
+                                                                                                          owl:allValuesFrom <http://data.safepec.eu/2016/bn/0.2/year_built>
+                                                                                                        ]
+                                                                                                      )
+                                                                                 ] ;
+                                                             
+                                                             rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.2/lookup_parameter> ;
+                                                             
+                                                             <http://data.safepec.eu/2016/bn/0.2/sql_variable_label> "year_built" .
 
 
 
 ###  http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_corr_state
 
 <http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_corr_state> rdf:type owl:Class ;
-                                                                 
-                                                                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                       owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
-                                                                                       owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_survey_corr_nd>
-                                                                                     ] .
+                                                                      
+                                                                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <http://data.safepec.eu/2016/bn/0.2/appliesTo> ;
+                                                                                            owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.2/years_to_next_renewal_survey_corr_nd>
+                                                                                          ] .
 
 
 
@@ -475,28 +522,6 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 #################################################################
 
 
-###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_0
-
-<http://data.safepec.eu/2016/bn/0.2/class_corr_state_0> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          <http://data.safepec.eu/2016/bn/0.2/state_value> "1.1"^^xsd:double ;
-                                                                          
-                                                                          <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/2DC0180C-C736-4E58-B3B0-A446C24FD13D> .
-
-
-
-###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_1
-
-<http://data.safepec.eu/2016/bn/0.2/class_corr_state_1> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
-                                                                          
-                                                                          <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/FE414C8C-13F9-4AF5-A0E3-4B586DB3C458> .
-
-
-
 ###  http://data.safepec.eu/2016/bn/0.2/FE414C8C-13F9-4AF5-A0E3-4B586DB3C458
 
 <http://data.safepec.eu/2016/bn/0.2/FE414C8C-13F9-4AF5-A0E3-4B586DB3C458> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_class_lookup_param> ,
@@ -506,14 +531,56 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 
 
+###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_0
+
+<http://data.safepec.eu/2016/bn/0.2/class_corr_state_0> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
+                                                                 owl:NamedIndividual ;
+                                                        
+                                                        <http://data.safepec.eu/2016/bn/0.2/state_value> "1.1"^^xsd:double ;
+                                                        
+                                                        <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/2DC0180C-C736-4E58-B3B0-A446C24FD13D> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_1
+
+<http://data.safepec.eu/2016/bn/0.2/class_corr_state_1> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
+                                                                 owl:NamedIndividual ;
+                                                        
+                                                        <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
+                                                        
+                                                        <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/FE414C8C-13F9-4AF5-A0E3-4B586DB3C458> .
+
+
+
 ###  http://data.safepec.eu/2016/bn/0.2/class_corr_state_2
 
 <http://data.safepec.eu/2016/bn/0.2/class_corr_state_2> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_corr_state> ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
-                                                                          
-                                                                          <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/0859C60D-6DEC-420E-86D3-8F52D9E7DCC5> .
+                                                                 owl:NamedIndividual ;
+                                                        
+                                                        <http://data.safepec.eu/2016/bn/0.2/state_value> "0.9"^^xsd:double ;
+                                                        
+                                                        <http://data.safepec.eu/2016/bn/0.2/dependsOn> <http://data.safepec.eu/2016/bn/0.2/0859C60D-6DEC-420E-86D3-8F52D9E7DCC5> .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/iacs_true
+
+<http://data.safepec.eu/2016/bn/0.2/iacs_true> rdf:type <http://data.safepec.eu/2016/bn/0.2/iacs_status> ,
+                                                        owl:NamedIndividual ;
+                                               
+                                               <http://data.safepec.eu/2016/bn/0.2/data_item_value> "true"^^xsd:string .
+
+
+
+###  http://data.safepec.eu/2016/bn/0.2/vessel_9173317
+
+<http://data.safepec.eu/2016/bn/0.2/vessel_9173317> rdf:type <http://data.safepec.eu/2016/bn/0.2/vessel> ,
+                                                             owl:NamedIndividual ;
+                                                    
+                                                    <http://data.safepec.eu/2016/bn/0.2/imo_number> 9173317 ;
+                                                    
+                                                    <http://data.safepec.eu/2016/bn/0.2/hasDataItem> <http://data.safepec.eu/2016/bn/0.2/iacs_true> .
 
 
 
@@ -547,15 +614,6 @@ iao:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://data.safepec.eu/test_indiv/class/lloydsregister> rdf:type <http://data.safepec.eu/2016/bn/0.2/class_soc> ,
                                                                   owl:NamedIndividual .
 
-
-
-
-
-#################################################################
-#
-#    General axioms
-#
-#################################################################
 
 
 

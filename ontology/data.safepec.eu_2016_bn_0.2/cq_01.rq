@@ -1,0 +1,23 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question 1:
+# For which data_items are there data_item_values available for a given vessel?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT * # ?lookup_param_class ?data_item_class 
+WHERE 
+{
+  # VALUES ?vessel { spc:vessel_9173317 } .
+  ?vessel rdf:type spc:vessel .
+  ?vessel ?p ?o .
+  # VALUES ?lookup_param_class { spc:class_soc_mapping_parameter } .
+#  ?lookup_param_class owl:equivalentClass|rdfs:subClassOf ?a .
+#  ?a owl:intersectionOf*/(rdf:rest*/rdf:first)* ?restriction .
+#  ?restriction rdf:type owl:Restriction .
+#  ?restriction owl:onProperty ?on_property .
+#  ?restriction owl:someValuesFrom|owl:allValuesFrom ?data_item_class .
+#  FILTER ( ?on_property = spc:refersToValueOf )
+}
