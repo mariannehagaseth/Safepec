@@ -10,14 +10,15 @@ PREFIX spc: <http://data.safepec.eu/2016/bn/0.2/>
 SELECT DISTINCT * # ?lookup_param_class ?data_item_class 
 WHERE 
 {
-  # VALUES ?vessel { spc:vessel_9173317 } .
+  # query parameter
+  VALUES ?imo { "9173317" } .
+  # get the vessel
   ?vessel rdf:type spc:vessel .
-  ?vessel ?p ?o .
-  # VALUES ?lookup_param_class { spc:class_soc_mapping_parameter } .
-#  ?lookup_param_class owl:equivalentClass|rdfs:subClassOf ?a .
-#  ?a owl:intersectionOf*/(rdf:rest*/rdf:first)* ?restriction .
-#  ?restriction rdf:type owl:Restriction .
-#  ?restriction owl:onProperty ?on_property .
-#  ?restriction owl:someValuesFrom|owl:allValuesFrom ?data_item_class .
-#  FILTER ( ?on_property = spc:refersToValueOf )
+  ?vessel spc:imo_number ?imo_value .
+  FILTER regex(str(?imo_value), ?imo, "i") .
+  # get vessels data_item_classes 
+  ?vessel spc:hasDataItem [ rdf:type ?data_item_class ] .
+  # assert that data_item_class is in subclass hierarchy
+  # of spc:data_item
+  ?data_item_class rdfs:subClassOf* spc:data_item .
 }
