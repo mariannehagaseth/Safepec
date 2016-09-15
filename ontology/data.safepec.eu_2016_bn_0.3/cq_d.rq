@@ -1,0 +1,32 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.3/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question d:
+#
+# Which data_item (indiv.) value exists for the data_item (class) for a given
+# vessel (indiv.)?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT ?imo_number ?data_item_indiv ?data_item_label ?data_item_value
+WHERE 
+{
+  VALUES (?data_item_class ?vessel_imo) {
+    ( spc:iacs_membership_status "14575" )
+  } .
+  #
+  # find the vessel individual
+  ?vessel_indiv rdf:type spc:vessel .
+  ?vessel_indiv spc:imo_number ?imo_number .
+  FILTER ( ?imo_number = ?vessel_imo ) .
+  #
+  # return all resources related by hasDataItem
+  ?vessel_indiv spc:hasDataItem ?data_item_indiv .
+  ?data_item_indiv rdf:type ?data_item_class .
+  OPTIONAL
+  {
+    ?data_item_indiv spc:hasValue ?data_item_value .
+    ?data_item_indiv spc:spc_label ?data_item_label .
+  }
+}

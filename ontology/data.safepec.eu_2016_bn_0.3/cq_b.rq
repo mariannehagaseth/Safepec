@@ -1,0 +1,35 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.3/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question b:
+#
+# Which parameter_defintions (class) exist for the given
+# data_integration_definition (class)?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT ?did_class ?param_def_class # ?param_def_class_label
+WHERE 
+{
+  VALUES ?did_class { <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class> } .
+  #
+  # return all classes which are subclasses of parameter_definition
+  ?param_def_class rdfs:subClassOf+ spc:parameter_definition .
+  #
+  # select those classes, which have a restriction along isParameterDefinitionFor
+  ?param_def_class owl:equivalentClass|rdfs:subClassOf ?a .
+  ?a owl:intersectionOf*/(rdf:rest*/rdf:first)* ?restriction .
+  ?restriction rdf:type owl:Restriction .
+  ?restriction owl:onProperty ?on_property .
+  FILTER ( ?on_property = spc:isParameterDefinitionFor ) .
+  # select those classes with the restriction applying to some values of ?did_class
+  ?restriction owl:someValuesFrom|owl:allValuesFrom ?did_class .
+  #
+  #
+  OPTIONAL
+  {
+    # provide the label, if applicable
+    ?param_def_class spc:spc_label ?param_def_class_label .
+  }
+}

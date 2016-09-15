@@ -1,0 +1,35 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.3/>
+PREFIX ccm: <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question a:
+#
+# Which data_integration_definitions (class) are required to resolve
+# all dependencies of a given model (class)?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT ?model_class ?dependent_class ?did_class
+WHERE 
+{
+  VALUES (?model_class) {( ccm:coating_lifetime )} .
+  #
+  # find all did_classes
+  ?dependent_class rdfs:subClassOf+ spc:dependent .
+  ?did_class rdfs:subClassOf+ spc:data_integration_definition .
+  #
+  ?model_class owl:equivalentClass|rdfs:subClassOf+ ?dependent_class .
+
+  # find all data_integration_defintions (class) which are restricted
+  # to ?model_class by hasSubmodel object property
+  ?dependent_class owl:equivalentClass|rdfs:subClassOf*
+      [ owl:intersectionOf*/(rdf:rest*/rdf:first)* [
+          rdf:type owl:Restriction ;
+          owl:onProperty ?on_property2 ;
+          owl:someValuesFrom|owl:allValuesFrom ?did_class
+      ] ] .
+
+  FILTER ( ?on_property2 = spc:isDependentOn ) .
+  #  
+}

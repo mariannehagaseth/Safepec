@@ -1,0 +1,51 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.3/>
+PREFIX ccm: <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Competency Question runtime:
+#
+# Get the result set of parameter label and value for a given vessel
+# and data_integration_definition_class!
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SELECT DISTINCT ?imo_number ?param_def_class ?data_item_class ?param_label ?param_value 
+WHERE 
+{
+  VALUES (?did_class ?vessel_imo) {
+    ( ccm:class "14575" )
+  } .
+  #
+  # find the vessel individual
+  ?vessel_indiv rdf:type spc:vessel .
+  ?vessel_indiv spc:imo_number ?imo_number .
+  FILTER ( ?imo_number = ?vessel_imo ) .
+  #
+  # return all classes which are subclasses of parameter_definition
+  ?param_def_class rdfs:subClassOf+ spc:parameter_definition .
+  #
+  # select those classes, which have a restriction along isParameterDefinitionFor
+  ?param_def_class owl:equivalentClass|rdfs:subClassOf ?a .
+  ?a owl:intersectionOf*/(rdf:rest*/rdf:first)* ?restriction .
+  ?restriction rdf:type owl:Restriction .
+  ?restriction owl:onProperty ?on_property .
+  FILTER ( ?on_property = spc:isParameterDefinitionFor ) .
+  # select those classes with the restriction applying to some values of ?did_class
+  ?restriction owl:someValuesFrom|owl:allValuesFrom ?did_class .
+  #  
+  # find all parameter_definitions individuals of class ?param_def_class
+  ?param_def_indiv rdf:type ?param_def_class .
+  #
+  # find all data_items in the scope of ?param_def_indiv for ?vessel_indiv
+  ?param_def_indiv spc:scope ?data_item_indiv .
+  ?vessel_indiv spc:hasDataItem ?data_item_indiv .
+  #
+  # find all parameters defined for ?param_def_indiv
+  ?param_def_indiv spc:hasProperPart ?param_indiv .
+  OPTIONAL
+  {
+    ?param_indiv spc:spc_label ?param_label .
+    ?param_indiv spc:hasValue ?param_value .
+  }
+}
