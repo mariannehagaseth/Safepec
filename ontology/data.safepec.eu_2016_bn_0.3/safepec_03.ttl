@@ -76,53 +76,29 @@ rdf:label rdf:type owl:AnnotationProperty .
 #
 #################################################################
 
-
 ###  http://data.safepec.eu/2016/bn/0.3/hasDataItem
-
 :hasDataItem rdf:type owl:ObjectProperty ;
-             
              rdfs:range :data_item .
 
-
-
 ###  http://data.safepec.eu/2016/bn/0.3/hasProperPart
-
 :hasProperPart rdf:type owl:ObjectProperty .
 
-
-
 ###  http://data.safepec.eu/2016/bn/0.3/isAbout
-
 :isAbout rdf:type owl:ObjectProperty .
 
-
-
 ###  http://data.safepec.eu/2016/bn/0.3/isDependentOn
-
 :isDependentOn rdf:type owl:ObjectProperty ;
-               
                rdfs:range :model ;
-               
                rdfs:domain :model .
 
-
-
 ###  http://data.safepec.eu/2016/bn/0.3/isParameterDefinitionFor
-
 :isParameterDefinitionFor rdf:type owl:ObjectProperty ;
-                          
                           rdfs:domain :parameter_definition .
 
-
-
 ###  http://data.safepec.eu/2016/bn/0.3/scope
-
 :scope rdf:type owl:ObjectProperty ;
-       
        rdfs:range :data_item ;
-       
        rdfs:subPropertyOf :isAbout ;
-       
        rdfs:domain :parameter_definition .
 
 
@@ -280,28 +256,23 @@ rdf:label rdf:type owl:AnnotationProperty .
 ###  http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo
 
 <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo> rdf:type owl:Class ;
-                                                            
-                                                            rdfs:label "causes_corrosion/cargo" ;
-                                                            
-                                                            rdfs:subClassOf :causes_corrosion_model ,
-                                                                            <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_dependent> ,
-                                                                            <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/ship_type_dependent> .
+    rdfs:label "causes_corrosion/cargo" ;
+    rdfs:subClassOf :causes_corrosion_model ,
+        <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_dependent> ,
+        <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/ship_type_dependent> .
 
 
 
 ###  http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo_dependent
 
 <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo_dependent> rdf:type owl:Class ;
-                                                                      
-                                                                      rdfs:label "causes_corrosion/cargo_dependent" ;
-                                                                      
-                                                                      owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :isDependentOn ;
-                                                                                            owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo>
-                                                                                          ] ;
-                                                                      
-                                                                      rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_dependent> ,
-                                                                                      <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/ship_type_dependent> .
+    rdfs:label "causes_corrosion/cargo_dependent" ;
+    owl:equivalentClass [ rdf:type owl:Restriction ;
+        owl:onProperty :isDependentOn ;
+        owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo>
+        ] ;
+    rdfs:subClassOf <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_dependent> ,
+        <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/ship_type_dependent> .
 
 
 
@@ -333,41 +304,36 @@ rdf:label rdf:type owl:AnnotationProperty .
 ###  http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_pd
 
 <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_pd> rdf:type owl:Class ;
-                                                               
-                                                               rdfs:subClassOf :parameter_definition ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :isParameterDefinitionFor ;
-                                                                                 owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :scope ;
-                                                                                 owl:someValuesFrom :iacs_membership_status
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :hasProperPart ;
-                                                                                 owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class/f_corrosion_rate>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :hasProperPart ;
-                                                                                 owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class/f_coating_lifetime>
-                                                                               ] .
+    rdfs:subClassOf :parameter_definition ,
+        [ rdf:type owl:Restriction ;
+        owl:onProperty :isParameterDefinitionFor ;
+        owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class>
+        ] ,
+        [ rdf:type owl:Restriction ;
+        owl:onProperty :scope ;
+        owl:someValuesFrom :iacs_membership_status
+        ] ,
+        [ rdf:type owl:Restriction ;
+        owl:onProperty :hasProperPart ;
+        owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class/f_corrosion_rate>
+        ] ,
+        [ rdf:type owl:Restriction ;
+        owl:onProperty :hasProperPart ;
+        owl:someValuesFrom <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class/f_coating_lifetime>
+        ] .
 
 
 
 ###  http://data.safepec.eu/2016/bn/0.3/causes_corrosion/coating_lifetime
 
 <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/coating_lifetime> rdf:type owl:Class ;
-                                                                       
-                                                                       rdfs:label "causes_corrosion/coating_lifetime" ;
-                                                                       
-                                                                       rdfs:subClassOf :causes_corrosion_model ,
-                                                                                       <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo_dependent> ,
-                                                                                       <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/maintenance_dependent> ,
-                                                                                       <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/yard_dependent> ;
-                                                                       
-                                                                       rdf:label "causes_corrosion/coating_lifetime" ;
-                                                                       
-                                                                       rdfs:comment "subModel properties are incomplete!" .
+    rdfs:label "causes_corrosion/coating_lifetime" ;
+    rdfs:subClassOf :causes_corrosion_model ,
+        <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/cargo_dependent> ,
+        <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/maintenance_dependent> ,
+        <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/yard_dependent> ;
+    rdf:label "causes_corrosion/coating_lifetime" ;
+    rdfs:comment "subModel properties are incomplete!" .
 
 
 
@@ -794,15 +760,13 @@ rdf:label rdf:type owl:AnnotationProperty .
 
 ###  http://data.safepec.eu/2016/bn/0.3/45013c3d-1568-4d2c-b28d-ac1bafdfa2f3
 
-<http://data.safepec.eu/2016/bn/0.3/45013c3d-1568-4d2c-b28d-ac1bafdfa2f3> rdf:type <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_pd> ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          rdfs:label "set 2" ;
-                                                                          
-                                                                          :scope :iacs_membership_unknown ;
-                                                                          
-                                                                          :hasProperPart <http://data.safepec.eu/2016/bn/0.3/45013c3d-1568-4d2c-b28d-ac1bafdfa2f3_f_coating> ,
-                                                                                         <http://data.safepec.eu/2016/bn/0.3/45013c3d-1568-4d2c-b28d-ac1bafdfa2f3_f_corrosion> .
+<http://data.safepec.eu/2016/bn/0.3/45013c3d-1568-4d2c-b28d-ac1bafdfa2f3>
+    rdf:type <http://data.safepec.eu/2016/bn/0.3/causes_corrosion/class_pd> ,
+        owl:NamedIndividual ;
+    rdfs:label "set 2" ;
+    :scope :iacs_membership_unknown ;
+    :hasProperPart <http://data.safepec.eu/2016/bn/0.3/45013c3d-1568-4d2c-b28d-ac1bafdfa2f3_f_coating> ,
+        <http://data.safepec.eu/2016/bn/0.3/45013c3d-1568-4d2c-b28d-ac1bafdfa2f3_f_corrosion> .
 
 
 
