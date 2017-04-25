@@ -1,0 +1,26 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX spc: <http://data.safepec.eu/2016/bn/0.3/>
+PREFIX ccm: <http://data.safepec.eu/2016/bn/0.3/vulnerability_bending_corrosion/>
+PREFIX vsc: <http://data.safepec.eu/2016/bn/0.3/vulnerability_shear_corrosion/>
+PREFIX cac: <http://data.safepec.eu/2016/bn/0.3/cause_corrosion/>
+SELECT ?imo_no  ?data_item_indiv ?param_label ?param_value
+WHERE 
+{
+?vessel_indiv rdf:type spc:vessel.
+?vessel_indiv spc:hasIMOnumber ?imo_no.
+?vessel_indiv spc:hasDataItem ?data_item_indiv .
+?data_item_indiv rdf:type spc:iacs_membership_status.
+?param_def_indiv spc:scope ?data_item_indiv .
+?param_def_indiv spc:hasProperPart ?param_indiv .
+?param_def_indiv  spc:isParameterDefinitionFor ?model.
+?model rdf:type spc:cause_corrosion_model
+OPTIONAL
+   {
+     ?param_indiv spc:spc_label ?param_label .
+     ?param_indiv spc:hasValue ?param_value .
+   }
+}
+
